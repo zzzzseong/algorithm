@@ -1,4 +1,4 @@
-# [Gold IV] 연구소 - 14502 (01:55:06)
+# [Gold IV] 연구소 - 14502 (01:05:06)
 
 [문제 링크](https://www.acmicpc.net/problem/14502) 
 
