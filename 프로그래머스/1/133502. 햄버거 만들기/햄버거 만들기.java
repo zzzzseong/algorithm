@@ -3,8 +3,8 @@ import java.util.*;
 class Solution {
     public int solution(int[] ingredient) {
         int answer = 0;
-        Stack<Integer> stack = new Stack<>();
         
+        Stack<Integer> stack = new Stack<>();
         for(int i : ingredient) {
             stack.push(i);
             if(stack.size() >= 4 && i == 1) {
