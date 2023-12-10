@@ -1,38 +1,38 @@
 import java.util.*;
 
 class Solution {
-        public int[] solution(int[] progresses, int[] speeds) {
-        List<Integer> progList = new ArrayList<>();
-        List<Integer> speedList = new ArrayList<>();
-        for (int progress : progresses) {
-            progList.add(progress);
-        }
-        for (int speed : speeds) {
-            speedList.add(speed);
-        }
-
-        List<Integer> releaseList = new ArrayList<>();
-
-        while(!progList.isEmpty()) {
-            int count = 0;
-            int loopSize = progList.size();
-            for (int i = 0; i < loopSize; i++) {
-                if(progList.get(0) < 100) break;
-                progList.remove(0);
-                speedList.remove(0);
-                count++;
+    private List<Integer> answer = new ArrayList<>();
+    
+    public int[] solution(int[] progresses, int[] speeds) {
+        int time = 0;
+        int index = 0;
+        while(index < progresses.length) {
+            time++;
+            
+            if((progresses[index] + speeds[index]*time) >= 100) {
+                index++;                
+                int count = 1;
+                while(true) {
+                    if(index == progresses.length) {
+                        answer.add(count);
+                        break;
+                    }
+                    
+                    if(progresses[index] + speeds[index]*time >= 100) {
+                        count++;
+                        index++;
+                    } else {
+                        answer.add(count);
+                        break;
+                    }
+                }
             }
-
-            if(count != 0) releaseList.add(count);
-            for (int i = 0; i < progList.size(); i++) { //element update
-                progList.set(i, progList.get(i) + speedList.get(i));
-            }
         }
-
-        int[] answer = new int[releaseList.size()];
-        for (int i = 0; i < releaseList.size(); i++) {
-            answer[i] = releaseList.get(i);
+    
+        int[] arr = new int[answer.size()];
+        for(int i=0; i<answer.size(); i++) {
+            arr[i] = answer.get(i);
         }
-        return answer;
-        }
+        return arr;
+    }
 }
