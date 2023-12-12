@@ -11,13 +11,15 @@ class Solution {
 
         for (int i = 0; i < records.length; i++) {
             String[] record = records[i].split(" ");
-            if(record[2].equals("IN")) { //입차 로직
+            if(record[2].equals("IN")) {
+                //입차 로직
                 recordMap.put(record[1], record[0]);
 
                 if(!carList.contains(record[1])) {
                     carList.add(record[1]);
                 }
-            } else { //출차 로직
+            } else { 
+                //출차 로직
                 int totalMin = getMinute(recordMap.get(record[1]), record[0]); //시간 계산
                 recordMap.remove(record[1]); //출차한 차량번호 삭제
 
