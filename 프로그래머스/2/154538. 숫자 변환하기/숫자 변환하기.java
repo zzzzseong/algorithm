@@ -11,27 +11,26 @@ class Solution {
         int idx = 1;
         boolean canCal = true;
         
-        LOOP1:
         while(canCal) {
             canCal = false;
             
             ls.add(new HashSet<>());
             
-            Set<Integer> set = ls.get(idx-1);
+            Set<Integer> set = ls.get(idx);
             
-            for(int num : set) {
+            for(int num : ls.get(idx-1)) {
                 int n1 = num + n;
                 int n2 = num * 2;
                 int n3 = num * 3;
                 
                 if(n1 < y || n2 < y || n3 < y) canCal = true;
-                if(n1 == y || n2 == y || n3 == y) break LOOP1;
+                if(n1 == y || n2 == y || n3 == y) return idx;
                 
-                ls.get(idx).add(n1);
-                ls.get(idx).add(n2);
-                ls.get(idx).add(n3);
+                set.add(n1);
+                set.add(n2);
+                set.add(n3);
             }
-        
+                   
             idx++;
             
             if(!canCal) return -1;
