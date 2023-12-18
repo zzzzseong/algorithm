@@ -8,6 +8,8 @@ class Solution {
         int idx = 0;
         
         bridge.offer(new Truck(time++, truck_weights[idx]));
+        
+        //bridge에 올라가있는 트럭의 총 무게
         int total = truck_weights[idx++];
         
         while(!bridge.isEmpty()) {
