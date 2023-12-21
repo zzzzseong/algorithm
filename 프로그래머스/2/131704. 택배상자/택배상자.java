@@ -18,30 +18,17 @@ class Solution {
                     truck.pop();
                     answer++;
                     idx++;
-                    
-                    continue;
-                }
-                
-                //sub로 옮겨야하는 경우
-                if(truck.peek() < order[idx]) {
+                } else if(truck.peek() < order[idx]) {
                     sub.push(truck.pop());
-                    
-                    continue;
-                }
-                
-                //sub에서 찾아야하는 경우
-                if(truck.peek() > order[idx]) {
+                } else {
                     if(sub.peek() != order[idx]) break;
                     else {
                         sub.pop();
                         answer++;
                         idx++;
                     }
-                    
-                    continue;
                 }
-            }
-            else {
+            } else {
                 if(sub.peek() != order[idx]) break;
                 else {
                     sub.pop();
