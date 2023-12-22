@@ -25,9 +25,8 @@ class Solution {
         int idx = 0;
         int[] answer = new int[n*(n+1)/2];
         for(int i=0; i<map.length; i++) {
-            for(int j=0; j<map[i].length; j++) {
-                if(map[i][j] != 0) answer[idx++] = map[i][j];
-                else break;
+            for(int j=0; j<=i; j++) {
+                answer[idx++] = map[i][j];
             }
         }
         
