@@ -4,7 +4,8 @@ class Solution {
         int right = sequence.length;
         
         int sum = 0;
-        for(int i=0, j=0; i<sequence.length; i++) {
+        int j = 0;
+        for(int i=0; i<sequence.length; i++) {
             while(sum < k && j < sequence.length) sum += sequence[j++];
             
             if(sum == k) {
