@@ -1,27 +1,23 @@
 class Solution {
     public int[] solution(int[] sequence, int k) {
+        int left = 0;
+        int right = sequence.length;
         
-        int N = sequence.length;
-        int left = 0, right = N;
         int sum = 0;
-        for(int L = 0, R = 0; L < N; L++) {
-            while(R < N && sum < k) {
-                sum += sequence[R++];
-            }
+        for(int i=0, j=0; i<sequence.length; i++) {
+            while(sum < k && j < sequence.length) sum += sequence[j++];
             
             if(sum == k) {
-                int range = R - L - 1;
-                if((right - left) > range) {
-                    left = L;
-                    right = R - 1;
+                if((right-left) > j-i) {
+                    left = i;
+                    right = j;
                 }
             }
             
-            sum -= sequence[L];
+            sum -= sequence[i];
         }
         
-        int[] answer = {left, right};
-        
+        int[] answer = {left, right-1};
         return answer;
     }
 }
