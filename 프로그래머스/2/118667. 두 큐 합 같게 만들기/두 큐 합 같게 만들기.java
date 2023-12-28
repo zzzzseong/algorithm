@@ -7,7 +7,6 @@ class Solution {
     private long sum1 = 0;
     private long sum2 = 0;
     
-    
     private void init(int[] queue1, int[] queue2) {
         for(int i=0; i<queue1.length; i++) {
             q1.offer(queue1[i]);
@@ -23,7 +22,6 @@ class Solution {
     public int solution(int[] queue1, int[] queue2) {
         init(queue1, queue2);
         
-        //각 큐의 원소 합을 같게 만들 수 없는 경우 -1;
         int cnt = 0;
         while(true) {
             if(sum1 > sum2) {
@@ -41,6 +39,8 @@ class Solution {
             }
             
             cnt++;
+            
+            //각 큐의 원소 합을 같게 만들 수 없는 경우 -1;
             if(cnt >= 600_000) return -1;
         }
         
