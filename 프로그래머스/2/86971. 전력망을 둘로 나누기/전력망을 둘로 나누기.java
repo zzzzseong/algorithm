@@ -1,5 +1,7 @@
 import java.util.*;
-
+/*
+루트노드의 자식의 갯수에서 자식노드의 간선을 하나씩 끊어가며 차이를 계산하면 효율적으로 풀 수있다.
+*/
 class Solution {
     private int[][] net;
     
