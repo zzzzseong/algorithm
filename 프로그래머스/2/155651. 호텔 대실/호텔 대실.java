@@ -21,6 +21,7 @@ class Solution {
         //sTime 기준 오름차순 정렬
         Arrays.sort(book, (b1, b2) -> b1[0] - b2[0]);
         
+        //List말고 PriorityQueue 쓰면 훨씬 좋을듯
         List<Integer> schedule = new ArrayList<>();
         schedule.add(book[0][1]);
         
