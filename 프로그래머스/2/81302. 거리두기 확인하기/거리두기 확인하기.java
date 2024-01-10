@@ -20,14 +20,7 @@ class Solution {
             String row = place[j];
             
             for(int k=0; k<row.length(); k++) {
-                
-                if(row.charAt(k) == 'P') {
-                    
-                    if(!bfs(place, j, k)) {
-                        return false;
-                    }
-                }
-
+                if(row.charAt(k) == 'P' && !bfs(place, j, k)) return false;
             }
         }
         
@@ -44,7 +37,6 @@ class Solution {
         while(!q.isEmpty()) {
             Node node = q.removeFirst();
             vis[node.getX()][node.getY()] = true;
-            
             
             for(int dir=0; dir<4; dir++) {
                 int nx = node.getX() + dx[dir];
