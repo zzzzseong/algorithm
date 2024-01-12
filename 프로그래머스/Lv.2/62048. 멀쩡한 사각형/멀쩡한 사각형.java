@@ -1,14 +1,13 @@
 class Solution {
     public long solution(int w, int h) {
                     
-        double curX = 1, curY = 1;
+        int curX = 1, curY = 1;
         
         long answer = 0;
         while(curX <= w) {
             answer++;
                         
-            double y = fx((double)w, (double)h, curX);
-            // System.out.println("x = " + curX + " y = " + curY + " d = " + y);
+            double y = fx(w, h, curX);
             
             if(y < curY) {
                 curX++;
@@ -23,7 +22,7 @@ class Solution {
         return (long)w*h-answer;
     }
     
-    public double fx(double w, double h, double x) {
-        return h*x/w;
+    public double fx(int w, int h, double x) {
+        return (double)h*x/w;
     }
 }
