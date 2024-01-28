@@ -8,11 +8,8 @@ class Solution {
             answer[i] = num_list[i];
         }
         
-        if(num_list[len-1] > num_list[len-2]) {
-            answer[len] = num_list[len-1]-num_list[len-2];
-        } else {
-            answer[len] = num_list[len-1]*2;
-        }
+        answer[len] = (num_list[len-1] > num_list[len-2]) ? num_list[len-1]-num_list[len-2] : num_list[len-1]*2;
+        
         
         return answer;
     }
