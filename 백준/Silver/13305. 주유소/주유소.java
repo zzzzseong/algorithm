@@ -4,20 +4,18 @@ import java.io.InputStreamReader;
 
 public class Main {
 
-    private static int N;
-
     private static int[] node;
     private static int[] edge;
 
-    private static int answer = 0;
+    private static long answer = 0;
 
     public static void init() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        N = Integer.parseInt(br.readLine());
+        int n1 = Integer.parseInt(br.readLine());
 
-        node = new int[N];
-        edge = new int[N-1];
+        node = new int[n1];
+        edge = new int[n1 -1];
 
         String[] e = br.readLine().split(" ");
         for (int i = 0; i < e.length; i++) {
@@ -36,9 +34,14 @@ public class Main {
         int curIdx = 0;
         int curCost = node[curIdx];
 
-        int sum = 0;
+        long sum = 0;
         for (int i = 1; i < node.length; i++) {
             sum += edge[i-1];
+
+            if(i == node.length-1) {
+                answer += node[curIdx]*sum;
+                break;
+            }
 
             if(node[i] < curCost) {
                 answer += node[curIdx]*sum;
@@ -48,10 +51,6 @@ public class Main {
                 curIdx = i;
                 curCost = node[curIdx];
             }
-        }
-
-        if(answer == 0) {
-            answer = node[0]*sum;
         }
 
         System.out.println(answer);
