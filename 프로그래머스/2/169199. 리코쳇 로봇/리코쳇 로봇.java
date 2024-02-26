@@ -53,26 +53,7 @@ class Solution {
                 hist[nextNode[0]][nextNode[1]][0] = node[0];
                 hist[nextNode[0]][nextNode[1]][1] = node[1];
                 
-                if('G' == board[nextNode[0]].charAt(nextNode[1])) {
-                    
-                    int ax = nextNode[0];
-                    int ay = nextNode[1];
-                    
-                    int cnt = 0;
-                    while(true) {
-                        int nax = hist[ax][ay][0];
-                        int nay = hist[ax][ay][1];
-                        
-                        ax = nax;
-                        ay = nay;
-                        
-                        cnt++;
-                        
-                        if(ax == sx && ay == sy) break;
-                    }
-                    
-                    return cnt;
-                }
+                if('G' == board[nextNode[0]].charAt(nextNode[1])) return getHistCnt(nextNode);
                                 
                 vis[nextNode[0]][nextNode[1]] = true;
                 dq.add(nextNode);
@@ -80,6 +61,26 @@ class Solution {
         }
         
         return -1;
+    }
+    
+    public int getHistCnt(int[] node) {
+        int x = node[0];
+        int y = node[1];
+                    
+        int cnt = 0;
+        while(true) {
+            int nx = hist[x][y][0];
+            int ny = hist[x][y][1];
+
+            x = nx;
+            y = ny;
+
+            cnt++;
+
+            if(x == sx && y == sy) break;
+        }
+        
+        return cnt;
     }
     
     public int[] getNextPos(String[] board, int x, int y, int[] dir) {
