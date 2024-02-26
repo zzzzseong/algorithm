@@ -31,9 +31,7 @@ class Solution {
                 }
                 
                 //k를 이용해 round pass가 불가능하다면 (k가 0이거나 pq가 비어있어 k를 소모할 수 없는 경우)
-                if(!pass) {
-                    return idx-1;
-                }
+                if(!pass) return idx-1;
             }
         }
         
