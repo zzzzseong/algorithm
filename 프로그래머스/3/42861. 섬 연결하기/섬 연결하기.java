@@ -34,10 +34,7 @@ class Solution {
         return answer;
     }
 
-    public void union(int x, int y) {
-        int px = find(x);
-        int py = find(y);
-
+    public void union(int px, int py) {
         if(px <= py) {
             parent[py] = px;
         } else {
