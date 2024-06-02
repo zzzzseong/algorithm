@@ -7,32 +7,18 @@ class Solution {
     }
     
     public int solution(int[] A, int[] B) {
-        
         init(A, B);
         
-        int aIdx = 0, bIdx = 0;
-        
-        int len = A.length;
-        
+        int aIdx = 0;
         int answer = 0;
-        while(bIdx < len) {
-            if(B[bIdx] <= A[aIdx]) {
-                bIdx++;
-                continue;
-            }
-            
-            answer++;
-            aIdx++;
-            bIdx++;
-        }
         
+        for(int bIdx=0; bIdx<B.length; bIdx++) {
+            if(B[bIdx] > A[aIdx]){
+                aIdx++;
+                answer++;
+            }
+        }
         
         return answer;
     }
 }
-
-//A: 2233
-//B: 1133
-
-//자연수는 1부터 10억까지
-//몇 번 이기는지 return
