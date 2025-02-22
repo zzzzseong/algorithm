@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.PriorityQueue;
+import java.util.StringTokenizer;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -15,9 +16,10 @@ public class Main {
             else return o1[1]-o2[1];
         });
 
+        StringTokenizer tokenizer;
         for (int i = 0; i < n; i++) {
-            String[] schedule = br.readLine().split(" ");
-            schedules.offer(new int[]{Integer.parseInt(schedule[0]), Integer.parseInt(schedule[1])});
+            tokenizer = new StringTokenizer(br.readLine());
+            schedules.offer(new int[]{Integer.parseInt(tokenizer.nextToken()), Integer.parseInt(tokenizer.nextToken())});
         }
 
         int end = 0;
